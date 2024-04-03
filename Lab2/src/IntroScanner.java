@@ -1,4 +1,8 @@
 import java.util.*;
+
+/*
+    Exemplu de folosire a clasei Scanner pentru a citi de la tastatura diferite tipuri de date.
+ */
 public class IntroScanner
 {
     public static void main(String[] args)
@@ -20,7 +24,7 @@ public class IntroScanner
         System.out.println("Introduceti un numar real: ");
         f = in.nextFloat();
         System.out.println("Numarul de tip float citit este: " + f);
-//... Inchiderea citirii prin intermediul Scanner
+        //... Inchiderea citirii prin intermediul Scanner
         in.close();
     }
 }
