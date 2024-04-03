@@ -1,0 +1,5 @@
+Milk, 8.50, 7, true
+Cheese, 5.70, 5, false
+Ham, 3.40, 25, true
+Pasta, 7.8, 14, true
+Tomato, 1.30, 20, false
