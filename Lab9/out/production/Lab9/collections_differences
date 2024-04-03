@@ -1,0 +1,44 @@
+1: ArrayList (Interfata List)
+    -este implementarea vectorului
+    -ne permite acces secvential pe baza pozitiei
+    -atunci cand inseram obiecte se pastreaza ordinea
+
+2: HashSet (Interfata Set)
+    -operatiile sunt similare cu cele pentru ArrayList (remove,add,etc.)
+    -nu permite duplicate (trebuie sa implementam metodele equals() si hashSet())
+
+3: HashMap (Interfata Map)
+    -nu stocam doar valori, ci perechi (cheie,valoare)
+    -perechile introduse isi pastreaza ordinea in care au fost introduse
+    -cheia si valoarea dintr-o pereche pot fi tipuri primitive sau clase
+    -interfata map nu permite perechi cu chei egale (cand cheile sunt obiecte,
+        acestea nu pot fi egale ca referinta si nici ca valoare (comparare cu equals())
+    -trebuie sa implementam metoda equals() pentru tipul cheii
+    -trebuie sa implementam si metoda hashCode() pentru tipul cheii
+    -daca se adauga o pereche cu o cheie care deja exista, perechea initiala va fi suprascrisa
+    -permite o singura cheie null si mai multe valori null
+
+4: TreeMap (Interfata Map)
+    -stocam perechi (stocarea similara ca la HashMap)
+    -operatiile sunt la fel ca la HashMap (cele mostenite din Map)
+    -pe langa operatiile mostenite din interfata Map, clasa TreeMap defineste si metode specifice, cum ar fi:
+            -headMap()
+            -subMap()
+            -tailMap()
+            -higherKey()
+            -lowerKey()
+            -ceilingKey()
+            -floorKey()
+    -TreeMap e implementat in spate pe baza unui binary tree, care mentine ordinea crescatoare a elementelor
+    indiferent de operatiile pe care le facem (inserare, stergere, modificare)
+    -atunci cand afisam perechile in ordinea default se face parcurgerea InOrder a unui binary tree
+    -when key is object, for example Employee, the TreeMap cannot be build and we get an exception because
+        there is no ordering criteria defined (there is no way to compare two Employee objects)
+      -one option is to make the object class implement the interface Comparable, which will force us to
+        implement the method compareTo() ; this method will be used to order the elements in the TreeMap
+      -another option is to use the Comparator<T> interface which forces us to implement the method int
+        compare(T o1, T o2); this method is different then compareTo() because it receives both objects
+         to be compared. In order to use a Comparator we can create an instance of the class implementing
+         the interface (MyNameComp, MySalaryComp) and pass it as an argument of the TreeMap constructor
+      -we should choose the comparator approach when we want multiple sorting methods for the TreeMap
+
