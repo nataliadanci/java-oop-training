@@ -30,3 +30,6 @@ Git Commands:
 //This command opens the graphical user interface for Git and allows us to perform
 // most of the GitHub commands.
 -git gui
+
+//This command is used to see the commit history.
+-git log
