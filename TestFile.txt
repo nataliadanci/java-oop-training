@@ -1,1 +1,0 @@
-This file is added only for testing the "git pull" command.
