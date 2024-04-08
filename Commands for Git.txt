@@ -1,0 +1,25 @@
+Git Commands:
+
+
+//This command is used to bring on your computer an existing repository from GitHub
+-git clone https://github.com/nataliadanci/java-oop-training.git
+
+//This command is used to check the status of the local repository vs the repository 
+// from GitHub (files that have been added, removed or modified which are tracked or
+// untracked by Git)
+-git status
+
+//This command is used to tell Git what modified files to track
+//We can specify a specific file name(the full name containing the path should be provided)
+//If we want to track all modified files we can use git add .
+-git add .
+-git add file_name
+
+//This command creates a commit with all the files that we added previously and needs
+// a specified message
+//After this command has been run, the changes are not yet on the repository from GitHub
+-git commit -m "The message for this commit"
+
+//This command is used to push one or multiple commits to the repository from GitHub
+//After this command has been run, we should see the latest changes also in GitHub
+-git push origin main
