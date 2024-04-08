@@ -33,3 +33,10 @@ Git Commands:
 
 //This command is used to see the commit history.
 -git log
+
+//This command is used to modify an existing commit. After ammending one or more commits
+it might be necessary to do a forced push.
+-git ammend
+
+//
+-git push -f origin main
