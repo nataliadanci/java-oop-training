@@ -23,3 +23,10 @@ Git Commands:
 //This command is used to push one or multiple commits to the repository from GitHub
 //After this command has been run, we should see the latest changes also in GitHub
 -git push origin main
+
+//This command is used to bring the latest version locally from GitHub
+-git pull
+
+//This command opens the graphical user interface for Git and allows us to perform
+// most of the GitHub commands.
+-git gui
