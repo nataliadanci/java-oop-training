@@ -36,7 +36,15 @@ Git Commands:
 
 //This command is used to modify an existing commit. After ammending one or more commits
 it might be necessary to do a forced push.
--git ammend
+-git commit --amend
 
-//
+//This command is used to amend the most recent commit without editing the commit message
+-git commit --amend --no-edit
+
+//This command is used to push the commits from origin to the main branch. The "-f"
+optionis for a forced operation and it's necessary to inform the GitHub server 
+that we are pushing changes for an existing commit
 -git push -f origin main
+
+//This command is used for an interactive rebase.
+-git rebase -i HEAD~n (n-number of commits)
