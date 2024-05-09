@@ -23,11 +23,13 @@ public class Persoana {
     public Carte[] getCartiImprumutate(){
         return cartiImprumutate;
     }
-    public void imprumutaCarte(Carte carte){
-        if(nrCartiImprumutate < 5){
+
+    public void imprumutaCarte(Carte carte) throws LendingBookNotSupportedException {
+        if(nrCartiImprumutate < 2){
             cartiImprumutate[nrCartiImprumutate] = carte;
             nrCartiImprumutate++;
-        }
+        } else throw new LendingBookNotSupportedException("Numarul maxim de carti imprumutate a fost atins");
+
     }
     public String toString(){
         return "" + this.nume + "," + this.prenume + "," + this.universitate + "," + this.nrCardBiblioteca;

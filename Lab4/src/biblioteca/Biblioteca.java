@@ -2,7 +2,7 @@ package biblioteca;
 
 public class Biblioteca {
 
-    private static final int NR_CARTI_TOTALE = 5;
+    private static final int NR_CARTI_TOTALE = 6;
     private int nrCartiImprumutate;
     private int nrCartiCurente;
     private Carte[] listaCarti;
@@ -44,15 +44,15 @@ public class Biblioteca {
 
     public Carte cautaCarteDupaTitlu(String titlu){
         for(Carte carteCurenta: listaCarti ){
-            if(carteCurenta.getTitlu() == titlu){
+            if(carteCurenta!=null && carteCurenta.getTitlu() == titlu){
                return carteCurenta;
             }
         }
         return null;
     }
 
-    public void imprumutaCarte(Persoana persoana, String titlu){
 
+    public void imprumutaCarte(Persoana persoana, String titlu) throws LendingBookNotSupportedException {
         Carte carteDeImprumutat = cautaCarteDupaTitlu(titlu);
         if(carteDeImprumutat == null){
             System.out.println("Cartea " + titlu + " nu este disponibila");
@@ -62,14 +62,13 @@ public class Biblioteca {
             nrCartiImprumutate++;
             //sa stergem din biblioteca cartea
             stergeCarteDinColectie(titlu);
-
         }
     }
 
     private void stergeCarteDinColectie(String titlu){
 
         for(int i = 0; i < NR_CARTI_TOTALE; i++){
-            if(listaCarti[i].getTitlu() == titlu){
+            if(listaCarti[i] != null && listaCarti[i].getTitlu() == titlu){
                 listaCarti[i] = null;
             }
         }
