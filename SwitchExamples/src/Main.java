@@ -15,10 +15,10 @@ public class Main {
         printDay(3);
 
         System.out.println();
-        checkMonth("January");
-        checkMonth("March");
-        checkMonth("june");
-        checkMonth("December");
+        checkMonthNumber("January");
+        checkMonthNumber("March");
+        checkMonthNumber("june");
+        checkMonthNumber("December");
 
         System.out.println();
         checkSeason("January");
@@ -87,7 +87,7 @@ public class Main {
         }
     }
 
-    public static void checkMonth(String monthName){
+    public static void checkMonthNumber(String monthName){
         switch (monthName){
             case "January":
                 System.out.println("Month 1");
