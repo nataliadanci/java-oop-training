@@ -3,7 +3,9 @@
 //It also works with enumerated types (discussed in Enum Types), the String class,
 //and a few special classes that wrap certain primitive types: Character, Byte, Short,
 //and Integer (discussed in Numbers and Strings).
-
+/*
+* Main class for switch case syntax and examples
+* */
 public class SwitchTestsMain {
     public static void main(String[] args) {
         printDayFullName(7);
