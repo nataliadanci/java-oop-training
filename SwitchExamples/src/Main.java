@@ -19,6 +19,8 @@ public class Main {
         checkMonthNumber("March");
         checkMonthNumber("june");
         checkMonthNumber("December");
+        checkMonthNumber("February");
+
 
         System.out.println();
         checkSeason("January");
