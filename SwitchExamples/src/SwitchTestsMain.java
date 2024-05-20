@@ -4,15 +4,15 @@
 //and a few special classes that wrap certain primitive types: Character, Byte, Short,
 //and Integer (discussed in Numbers and Strings).
 
-public class Main {
+public class SwitchTestsMain {
     public static void main(String[] args) {
-        printDay(7);
-        printDay(6);
-        printDay(8);
+        printDayFullName(7);
+        printDayFullName(6);
+        printDayFullName(8);
         System.out.println();
-        printDay(1);
-        printDay(2);
-        printDay(3);
+        printDayFullName(1);
+        printDayFullName(2);
+        printDayFullName(3);
 
         System.out.println();
         checkMonthNumber("January");
@@ -20,6 +20,7 @@ public class Main {
         checkMonthNumber("june");
         checkMonthNumber("December");
         checkMonthNumber("February");
+
 
 
         System.out.println();
@@ -55,7 +56,7 @@ public class Main {
         }
     }
 
-    public static void printDay(int dayNumber){
+    public static void printDayFullName(int dayNumber){
         switch (dayNumber) {
             case 1:
                 for (int i=1; i <= dayNumber; i++){
