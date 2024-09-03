@@ -1,0 +1,49 @@
+plugins {
+    //id 'java'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'org.example'
+archivesBaseName = 'GradleDemo'
+version = '1.3'
+
+
+repositories {
+    mavenCentral()
+}
+
+//this is a publishing setup that also specifies the custom repository (folder) under which the
+//production JAR is published
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            artifactId = 'GradleDemo'
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'myRepo'
+            url = layout.buildDirectory.dir("artifacts-repository")
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.11.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+compileJava   {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+    useJUnitPlatform()
+}
