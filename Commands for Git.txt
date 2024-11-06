@@ -46,5 +46,69 @@ optionis for a forced operation and it's necessary to inform the GitHub server
 that we are pushing changes for an existing commit
 -git push -f origin main
 
-//This command is used for an interactive rebase.
+//This command is used for an interactive rebase and allows us to update multiple commits(the last n commits) and not only the last one as it was the case with the commit --amend command
 -git rebase -i HEAD~n (n-number of commits)
+
+//there are more rebase interactive options but pick, reword, squash and edit are the most common
+-git rebase -i options
+-p(pick): this option means that we want to keep this commit as it is
+-r(reword): this option means that we want to update the commit message
+-s(squash): this option is used when we want to merge multiple commits into a single one. In case we want a commit to be merged into the previous one, we need to add the s option
+			to this commit and keep the pick option for the parent one. At the second stage we need to provide the final commit message for the resulting commit after the merge.
+-e(edit): this command is used to edit a commit, which means editing the content. When the rebase gets to the edit commit, it will leave the commit unchanged and then pause before
+		  the next commit. In order to edit this commit, we need to use the command git commit --amend. After we updated this commit, we need to continue the rebase with the command
+		  git rebase --continue
+-d(drop): to drop(delete) a commit from that branch
+
+//This command displays the list of existing branches. In order to be sure that the local
+environment we have all the branches from the github server, we should run the command git pull.
+-git branch
+
+//This command is used to choose the branch_name to work on.
+-git checkout branch_name
+
+//This command is used to create a new branch. The new branch is created as a clone of the branch we are currently on.
+-git checkout -b new_branch_name
+
+//These commnads are used to delete a branch. The option with -D is for forced delete.
+-git branch -d branch_name
+-git branch -D branch_name
+
+
+Merging PRs and fixing conflicts:
+-conflicts appear when the same code lines are changed and we need to specify how to combine all the changes
+-the first step is to rebase our branch on top of the branch we want to merge to
+	-git rebase other_branch_name(before running this command we need to be on our branch)
+-if there are no conflicts the rebase will be done automatically and the changes from our branch will be on top of everything that's on the other_branch_name
+-if there are conflicts:
+	-they will be solved in order
+	-fix the conflicts and run git add .
+	-run the command git rebase --continue
+	-if there are conflicts again, do the same
+-after all the conflicts have been solved, and the rebase is finished, push the branch
+-the PR should no longer display conflicts and we can merge it into main
+
+https://learngitbranching.js.org/
+
+
+
+//This command is used to put some local changes on local stash, which is a stack
+(list) of commits that have not been merged. We can specify a message with exactly
+how we do for a commit. After running this command, the changes will no longer be
+available on the current branch.
+//Each stash is done on top of the current commit from the branch we are currently on.
+-git stash
+-git stash push -m "stash_message"
+
+//This command is used to display the entire list of changes that were stashed together
+-git stash list
+
+//This commnd is used to bring back the changes from a stash using an index
+//The indexes of stashed changes are specified like this: stash@{0}, stash@{1}..
+//We cannot pop some changes if the stash has not been done on the same branch. We can consider
+that each branch has its own list of stashed changes.
+-git stash pop --index n
+
+Cherry pick functionality:
+	-when we are on a branch and we want to bring on that branch some changes that are from a commit from another branch,
+	we need to select that commit and select the cherry pick option in IntelliJ
